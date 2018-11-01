@@ -4,11 +4,7 @@
 {% block content %}
 <br>
 <br>
-<br>
 <body>
-  <br>
-  <br>
-  <br>
   
   <div class="container">
     <div class="row">
@@ -18,9 +14,11 @@
         {% if form.errors %}
         <p> Password or Username is incorrect </p>
         {% endif %}
-        <div class="well" style="width:100% !important;border: solid green;">
+        <div class="well" style="width:100% !important;border: solid black;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
           <div class="panel-header">
-            <h2 style="text-align:center;font-size: 40px;">Sign up</h2>
+            <h2 style="text-align:center;font-size: 40px;font-weight: bolder;">Smart Gym</h2>
+            <hr>
+            <h2  style="text-align:center;font-size: 30px;font-weight: bolder;">Sign Up</h2>
           </div>
           <hr>
           <form action="/accounts/register/" method="post" style="text-align:center;font-size: 17px;">
@@ -39,6 +37,9 @@
               {% endfor %}
             </p>
             {% endfor %}
+            <br>
+            <script src='https://www.google.com/recaptcha/api.js'></script>            <div class="g-recaptcha" data-sitekey="6LdfA3gUAAAAAINXkgck73xW1u45lUlhJta0QzYN" style="padding-left:6px !important;"></div>
+            <br>
             <button type="submit" class="btn-lg btn btn-success" style="width:60%;">Sign up</button>
             <br>
             <br>
@@ -47,37 +48,38 @@
             </center>
           </form>
           <br>
+          
         </div>
-        
       </div>
       <!-- empty div -->
       <div class="col-md-4"></div>
     </div>
+    
   </div>
   
-  
-  
+
 </body>
+
 <style>
-  body{
-    background: rgb(243, 243, 243);
-    font-family: 'Lato', sans-serif;
-  }
   #id_username{
     width: 85%;
     border-radius: 2px;
+    font-weight: bolder;
   }
   #id_email{
     width: 85%;
     border-radius: 2px;
+    font-weight: bolder;
   }
   #id_password1{
     width: 85%;
     border-radius: 2px;
+    font-weight: bolder;
   }
   #id_password2{
     width: 85%;
     border-radius: 2px !important;
+    font-weight: bolder;
   }
 </style>
 {% endblock %}  

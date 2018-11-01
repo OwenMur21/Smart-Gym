@@ -26,10 +26,10 @@
         <br>
         <br>
         <div class="col-xs-12 col-sm-12 col-md-12 ">
-          <div class="well" style="width:100% !important;border: solid green;">
+          <div class="well" style="width:100% !important;border: solid black;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
             
             <div class="well-heading">
-              <h2 class="text-center" style="text-align:center;font-size: 40px;">Sign In</h2>
+              <h2 class="text-center" style="text-align:center;font-size: 40px;font-weight: bolder;">Sign In</h2>
             </div>
             <hr>
             <div class="panel-body">
@@ -41,9 +41,15 @@
                 <div class="form-group">
                   <input type="submit" class="btn btn-success btn-lg" value="Login">
                 </div>
+                <a href="/accounts/password/change"><p>Forgot password?</p></a>
+                <p>--OR--</p>
+                <p>Login with</p>
+                </a> <a href="{% url 'social:begin' 'google-oauth2' %}">
+                  <button type="button" name="button" class="btn btn-danger">Google <i class="fab fa-google-plus-g"></i></button>
+                </a>
+                <br>
                 <br>
                 <p class="have">Don't have an account? <a href="/accounts/register">Sign Up</a> </p>
-                
                 <input type="hidden" name="next" value="{{next}}">
                 
               </form>

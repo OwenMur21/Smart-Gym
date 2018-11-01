@@ -1,0 +1,67 @@
+<!-- {% extends 'base.html'%}
+{% load bootstrap3 %}
+{% load bootstrap4 %}
+{% load static %}
+
+{% block styles %}
+{{block.super}}
+
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+
+{% endblock %}
+{% block content %}
+<br> 
+<div class="row">
+    {% for gym in gyms %}
+    <div class="col-xs-12 col-sm-6 col-md-4 projects" style="padding-left:30px;">
+      <p>{{gym.id}}){{gym.name}}</p>
+      <img src="{{gym.image.url}}" alt="" style="width:250px;">
+       <p><b>Location:</b> {{ gym.location }}</p>
+       <p><b>Description:</b> {{gym.description}}</p>
+   
+    </div>
+    {% endfor %}
+  
+  </div>
+
+
+{% endblock %}
+{% block scripts %} {{block.super}}
+
+{% endblock %} -->
+
+
+<div class="content">
+    <!--Content Head-->
+    <div class="content-head">
+      <h3>Top Stories</h3>
+      <p>Up-to-date Top Stories coverage.</p>
+    </div>
+  
+    <!-- Content Body -->
+    <div class="content-body">
+      <div class="row">
+  
+        <div class="col-sm">
+          <div class="card">
+            <a href={{_story.url}} target="blank_">
+              <img class="card-img-top img-fluid" src={{_story.urlToImage}} alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title text">{{_story.title}}</h5>
+                <p class="date text-left">{{_story.publishedAt | date }}</p>
+                <div class="card-footer">
+                  <small class="text-muted">{{_story.author}}</small>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>

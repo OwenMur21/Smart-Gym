@@ -15,10 +15,17 @@ Including another URLconf
 """
 from django.conf.urls import url,include
 from django.contrib import admin
+from django.contrib.auth import views
+from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'',include('client.urls')),
+    url(r'^client/',include('client.urls')),
     url(r'',include('gym.urls')),
-    url(r'',include('trainer.urls')),
+    url(r'^trainer/',include('trainer.urls')),
+    url(r'^accounts/', include('registration.backends.simple.urls')),
+    url(r'^',include('django.contrib.auth.urls')),
+    url(r'^logout/$', views.logout, {"next_page": '/'}), 
+    url(r'^oauth/',include('social_django.urls',namespace="social")),
 ]
