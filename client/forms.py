@@ -7,3 +7,16 @@ class SignupForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2')
+
+
+
+class ChatForm(forms.ModelForm):
+    class Meta:
+        model = Chatroom
+        exclude = ['admin']
+
+
+class ChatPostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        exclude = ['chatroom','poster','gym']

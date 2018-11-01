@@ -1,14 +1,13 @@
-from django import forms
-from .models import *
+# from django import forms
+# from .models import *
+
+# class ChatForm(forms.ModelForm):
+#     class Meta:
+#         model = Chatroom
+#         exclude = ['admin']
 
 
-class ChatForm(forms.ModelForm):
-    class Meta:
-        model = Chatroom
-        exclude = ['admin']
-
-
-class ChatPostForm(forms.ModelForm):
-    class Meta:
-        model = Post
-        exclude = ['chatroom','poster','gym']
+# class ChatPostForm(forms.ModelForm):
+#     class Meta:
+#         model = Post
+#         exclude = ['chatroom','poster','gym']
