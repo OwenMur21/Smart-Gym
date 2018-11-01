@@ -1,18 +1,22 @@
 from django.shortcuts import render
+from django.contrib.auth.models import User
+from django.http  import HttpResponse,Http404,HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login, authenticate
 import json
 import urllib
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,get_object_or_404
 from django.conf import settings
 from django.contrib import messages
-from .forms import SignupForm
+from .forms import SignupForm,GymForm
+from .models import Gym
 from .decorators import check_recaptcha
 
 
 # Create your views here.
 def homepage(request):
-    print("jkffffffffffffffffffffffffffffffffffffsd")
-
-    return render(request, 'gym/gym.html')
+  gyms = Gym.objects.all()
+  return render(request, 'gym/gym.html',locals())
 
 def signup(request):
 
@@ -58,3 +62,39 @@ def signup(request):
         form = SignupForm()
 
     return render(request, 'registration/registration_form.html', {'form': form})
+
+
+@login_required(login_url='/accounts/login/')
+def add_gym(request):
+	'''
+	View function that enables gym admins add their gyms
+	'''
+	if request.method == 'POST':
+		form = GymForm(request.POST,request.FILES)
+		if form.is_valid():
+			gym = form.save(commit = False)
+			gym.user = request.user
+			gym.save()
+			
+			return redirect('home')
+
+	else:
+		form = GymForm()
+		return render(request,'gym/add_gym.html',locals())
+
+@login_required(login_url='/accounts/login/')
+def edit_gym(request,gym_id):
+	'''
+	View function that enable gym admins edit gym details
+	'''
+	gyms = Gym.objects.get(pk = gym_id)
+	if request.method == 'POST':
+		form = GymForm(request.POST,instance = gyms)
+		if form.is_valid():
+			form.save()
+			messages.success(request, 'Gym has been edited successfully')
+			
+			return redirect('home')
+	else:
+		form = GymForm(instance = gyms)
+		return render(request,'gym/edit_gym.html',locals())

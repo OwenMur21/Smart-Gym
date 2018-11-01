@@ -1,0 +1,184 @@
+<nav>
+
+    <div id="heading">
+      <h3 class="full-heading">NewsFeed</h3>
+      <h3 class="short-title">NF</h3>
+    </div>
+  
+    <ul>
+      <li>
+        <a routerLink="">
+          <span class="icon-space">
+            <i class="fas fa-newspaper"></i>
+          </span>
+          <span class="link-name">Top Stories
+            <span class="tooltip"></span>
+          </span>
+        </a>
+      </li>
+  
+      <li>
+        <a routerLink="local-news">
+          <span class="icon-space">
+            <i class="fas fa-map-marked-alt"></i>
+          </span>
+          <span class="link-name">Local News
+              <span class="tooltip"></span>
+          </span>
+        </a>
+      </li>
+  
+      <li>
+        <a routerLink="world-news">
+          <span class="icon-space">
+            <i class="fas fa-globe-africa"></i>
+          </span>
+          <span class="link-name">World News</span>
+        </a>
+      </li>
+  
+      <li>
+        <a routerLink="business">
+          <span class="icon-space">
+            <i class="fas fa-briefcase"></i>
+          </span>
+          <span class="link-name">Business</span>
+        </a>
+      </li>
+  
+      <li>
+        <a routerLink="entertainment">
+          <span class="icon-space">
+            <i class="fas fa-film"></i>
+          </span>
+          <span class="link-name">Entertainment</span>
+        </a>
+      </li>
+  
+      <li>
+        <a routerLink="technology">
+          <span class="icon-space">
+            <i class="fas fa-mobile-alt"></i>
+          </span>
+          <span class="link-name">Technology</span>
+        </a>
+      </li>
+  
+      <li>
+        <a routerLink="sports">
+          <span class="icon-space">
+            <i class="fas fa-basketball-ball"></i>
+          </span>
+          <span class="link-name">Sports</span>
+        </a>
+      </li>
+  
+      <li>
+        <a routerLink="science">
+          <span class="icon-space">
+            <i class="fas fa-flask"></i>
+          </span>
+          <span class="link-name">Science</span>
+        </a>
+      </li>
+  
+      <li>
+        <a routerLink="health">
+          <span class="icon-space">
+            <i class="fas fa-briefcase-medical"></i>
+          </span>
+          <span class="link-name">Health</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <style>
+    nav {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  min-height: 100vh;
+  /* will cover the 100% of viewport */
+  overflow: hidden;
+  margin: 0;
+}
+
+.short-title{
+  display: none !important;
+}
+
+#heading h3 {
+  font-weight: 700;
+  text-align: center;
+  padding: 40px 0 10px 0;
+  ;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  padding: 15px 0 15px 30px;
+  ;
+}
+
+ul li:hover {
+  background-color: #F2F2F2;
+}
+
+ul li:active {
+  background-color: #F2F2F2;
+}
+
+ul li:after {
+  background-color: #F2F2F2;
+}
+
+a {
+  color: #111517;
+  text-decoration: none;
+}
+
+.icon-space {
+  padding-right: 10px;
+}
+
+@media screen and (max-width: 1180px) {
+  nav {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    overflow: hidden;
+    margin: 0;
+    width: 80px;
+  }
+
+  #heading h3 {
+    font-size: 13px;
+    margin: 40px 0 10px 0;
+    padding: 8px;
+    text-align: left;
+  }
+
+  ul li {
+    padding: 15px 0 15px 30px;
+  }
+
+  .link-name {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .full-heading{
+    display: none;
+    position: relative;
+  }
+
+  .short-title{
+    text-align: center !important;
+    display: block !important;
+    font-size: 20px !important;
+    font-weight: 900 !important;
+  }
+}
+  </style>
