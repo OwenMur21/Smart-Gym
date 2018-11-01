@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'trainer.apps.TrainerConfig',
     'bootstrap3',
     'bootstrap4',
-    'social_django',
+    # 'social_django',
     
     
 ]
@@ -101,8 +101,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'smartgym',
-        'USER': 'gift',
-    'PASSWORD':'gL0711',
+        'USER': 'hannah',
+    'PASSWORD':'hannah',
     }
 }
 

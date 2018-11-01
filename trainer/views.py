@@ -9,6 +9,33 @@ from .decorators import check_recaptcha
 
 
 # Create your views here.
+def trainer(request):
+    profiles = Profile.objects.all()
+    
+    return render(request,'profile/profile.html',{ "profiles":profiles })
+def profile(request, user_id):
+    """
+    Function that enables one to see their profile
+    """
+    title = "Profile"
+    profiles = User.objects.get(id=user_id)
+    user = User.objects.get(id=user_id)
+    return render(request, 'profile/profile.html',{'title':title, "profiles":profiles})
+
+  
+def new_profile(request):
+    current_user = request.user
+    profile=Profile.objects.get(user=request.user)
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES,instance=request.user.profile)
+        if form.is_valid():
+            form.save()
+        return redirect('/')
+
+    else:
+        form = ProfileForm()
+    return render(request, "profile/edit_profile.html", {"form":form}) 
+
 def homepage(request):
     return render(request, 'home.html')
 
