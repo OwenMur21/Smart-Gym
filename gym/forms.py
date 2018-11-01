@@ -15,5 +15,5 @@ class GymForm(forms.ModelForm):
   '''
   class Meta:
     model = Gym
-    fields = ['name','image','location','description',]
+    fields = ['name','image','location','description','working_hours',]
     exclude = ['posted_on']

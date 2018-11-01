@@ -15,7 +15,7 @@
     <div class="row">
       {% for gym in gyms %}
       <div class="col-xs-12 col-sm-6 col-md-4 images">
-        <div class="card" style="width:100% !important;">
+        <div class="card" style="width:100% !important;box-shadow: 0 12px 10px 0 rgba(0, 0, 0, 0.2), 0 15px 23px 0 rgba(0, 0, 0, 0.06);">
           <div class="card-header">
             <h4><b>{{gym.id}}) {{gym.name}}</b></h4>
           </div>
@@ -35,6 +35,10 @@
       {% endfor %}
     </div>
   </div>
+
+
+
 {% endblock %}
 {% block scripts %} {{block.super}}
+
 {% endblock %}

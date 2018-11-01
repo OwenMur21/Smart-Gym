@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'trainer.apps.TrainerConfig',
     'bootstrap3',
     'bootstrap4',
-    # 'social_django',
+    'social_django',
     
     
 ]
