@@ -16,7 +16,8 @@
 {% endblock %}
 {% block content %}
 <br> 
-<div class="container" style="padding-left: 80px;">
+<br>
+<div class="container">
     <div class="row">
       {% for gym in gyms %}
       <div class="col-xs-12 col-sm-6 col-md-4 images">
@@ -29,12 +30,10 @@
               <br>
               <br>
               <p><b>Location:</b> {{gym.location}}</p>
-              <p><b>Description:</b> {{gym.description}}</p>
-              <p><b>Working Hours:</b> {{gym.working_hours}}</p>
-
-          
           </div>
-          
+          <div class="card-footer">
+            <a href="{% url 'join_gym' gym.id %}"><button type="button" class="btn btn-success" style="float:right !important;">Join Gym</button></a>
+          </div>
         </div>
         <br>
       </div>

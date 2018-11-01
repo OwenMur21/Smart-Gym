@@ -39,3 +39,39 @@ class Gym(models.Model):
   def __str__(self):
     return self.name
 
+
+class Join(models.Model):
+    """
+    Class that enables clients join gyms
+    """
+    user = models.OneToOneField(User)
+    gym = models.ForeignKey(Gym)
+
+    def __str__(self):
+        return self.user
+
+class Image(models.Model):
+  name = models.CharField(max_length=100)
+  image = models.ImageField(upload_to='images/')
+
+  def save_image(self):
+    self.save
+
+  def update_image(self):
+    self.update
+
+  def delete_image(self):
+    self.delete
+
+  @classmethod
+  def get_gym_images(cls):
+    pics = Image.objects.all()
+    return pics
+
+  @classmethod
+  def filter_by_gym(cls,id):
+        images = cls.objects.filter(gym_id=id)
+        return images
+
+  def __str__(self):
+    return self.name

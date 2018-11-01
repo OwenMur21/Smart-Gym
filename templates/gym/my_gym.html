@@ -1,0 +1,109 @@
+{% extends 'base.html'%}
+{% load bootstrap3 %}
+{% load bootstrap4 %}
+{% load static %}
+
+{% block styles %}
+{{block.super}}
+
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+
+{% endblock %}
+{% block content %}
+{% include 'navbar.html' %}
+<br> 
+<br>
+<div class="container" style="padding-left:100px;">
+    <div class="row">
+      
+      <div class="col-xs-12 col-sm-12 col-md-12 images">
+        <div class="card" id="name">
+            <div class="card-header">
+                <h2 style="color:black;"><b>{{gym.id}}) {{gym.name}}</b></h2>
+              </div>
+              <div class="card-body">
+                  <img src="{{gym.image.url}}"   alt="" style="height:500px;width: 100% !important;position: center;size: cover;">
+                  <br>
+                  <br>
+                  <h5><b><i class="fas fa-map-marker-alt"></i>&nbsp;:</b> {{gym.location}}</h5>
+                  <br>
+                  <h5><b></b> {{gym.description}}</h5>
+                  <br>
+                  <h5><b>Working Hours:</b> {{gym.working_hours}}</h5><br>
+    
+              </div>
+        
+            <br>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background:rgb(15, 15, 15);height: 70px;" id="gallery">
+        <h1 style="text-align:center;color:whitesmoke;padding-top:10px;overflow: hidden;">Gallery</h1>
+      </div>
+    </div>
+    <div class="row">
+        {% for pic in pics %}
+        <div class="col-xs-12 col-sm-12 col-md-4 img-container">
+                <div class="card-body">
+                    <img src="{{pic.image.url}}"   alt="" style="height:400px;width: 330px !important;position: center;size: cover;">
+                </div>
+          
+              <br>
+        
+        </div>
+        {% endfor %}
+      </div>
+    <br>
+    <br>
+
+  </div>
+<center>
+    <a href="/exit_gym/{{gym.id}}" class="btn btn-warning"> Exit Gym </a>
+</center>
+
+
+
+
+{% endblock %}
+{% block scripts %} {{block.super}}
+<style>
+  .img-container {
+  overflow: hidden;
+  position: relative;
+}
+.img-container img {
+  transition: .7s;
+  background-color: #000;
+  opacity:1;
+}
+/* .img-container figcaption {
+  color: greenyellow !important;
+  font-weight: bolder !important;
+  font-family: 'Zilla Slab', serif !important;
+  text-transform: uppercase;
+  display: block;
+  text-align: center;
+  position:absolute;
+  width: 200px;
+  top: -40px;
+  background-color: black !important;
+  font-size: 30px !important;
+  width: 100%;
+  transition: .1s;
+} */
+.img-container:hover figcaption {
+     top: 150px;
+}
+.img-container:hover img {
+  transform: scale(1.1);
+  opacity: .6;
+}
+</style>
+{% endblock %}
