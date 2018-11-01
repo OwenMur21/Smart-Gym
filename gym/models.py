@@ -11,7 +11,6 @@ class GymManager(models.Model):
     bio = models.TextField(max_length=100, blank=True)
     profilepic = models.ImageField(upload_to='picture/',blank=True)
     
-
 class Gym(models.Model):
   '''
   Class that contains gym class properties,methods and functions
