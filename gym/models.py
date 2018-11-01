@@ -22,7 +22,7 @@ class Gym(models.Model):
   image = models.ImageField(upload_to='images/')
   location = models.CharField(max_length=100)
   working_hours = models.TextField()
-  manager = models.ForeignKey('GymManager')
+  manager = models.ForeignKey('GymManager',default = 0)
 
   class Meta:
     ordering = ['posted_on']

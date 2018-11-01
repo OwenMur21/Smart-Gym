@@ -40,21 +40,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
-    'gym',
-    'client',
-    'trainer',
     'bootstrap4',
-=======
     'client.apps.ClientConfig',
     'gym.apps.GymConfig',
     'trainer.apps.TrainerConfig',
     'bootstrap3',
-    'bootstrap4',
     'social_django',
     
     
->>>>>>> gift
 ]
 
 MIDDLEWARE = [
@@ -108,13 +101,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'smartgym',
-<<<<<<< HEAD
         'USER': 'kwesi',
     'PASSWORD': 'Makonnen14',
-=======
-        'USER': 'gift',
-    'PASSWORD':'gL0711',
->>>>>>> gift
     }
 }
 
@@ -162,12 +150,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
-<<<<<<< HEAD
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-=======
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 django_heroku.settings(locals())
->>>>>>> gift

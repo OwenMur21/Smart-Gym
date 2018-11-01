@@ -84,7 +84,7 @@ def add_gym(request):
 		form = GymForm(request.POST,request.FILES)
 		if form.is_valid():
 			gym = form.save(commit = False)
-			gym.user = request.user
+			gym.manager = request.user.gym_manager
 			gym.save()
 			
 			return redirect('home')
