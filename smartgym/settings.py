@@ -41,9 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
-    'client'
-=======
     'client.apps.ClientConfig',
     'gym.apps.GymConfig',
     'trainer.apps.TrainerConfig',
@@ -52,7 +49,6 @@ INSTALLED_APPS = [
     'social_django',
     
     
->>>>>>> gift
 ]
 
 MIDDLEWARE = [
@@ -63,11 +59,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-<<<<<<< HEAD
       'whitenoise.middleware.WhiteNoiseMiddleware',
-=======
     'social_django.middleware.SocialAuthExceptionMiddleware', 
->>>>>>> gift
 ]
 
 ROOT_URLCONF = 'smartgym.urls'
@@ -106,23 +99,12 @@ WSGI_APPLICATION = 'smartgym.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-<<<<<<< HEAD
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
-=======
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'smartgym',
-        'USER': 'gift',
-    'PASSWORD':'gL0711',
-    }
-}
->>>>>>> gift
 
 
 # Password validation
@@ -166,17 +148,10 @@ USE_TZ = True
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_URL = '/static/'
-<<<<<<< HEAD
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-=======
->>>>>>> gift
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-<<<<<<< HEAD
 django_heroku.settings(locals())
-=======
-django_heroku.settings(locals())
->>>>>>> gift
