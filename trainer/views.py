@@ -9,8 +9,8 @@ from .decorators import check_recaptcha
 
 
 # Create your views here.
-def homepage(request):
-    return render(request, 'home.html')
+def trainer_home(request):
+    return render(request, 'trainer/trainer_home.html')
 
 def signup(request):
 

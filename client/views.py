@@ -9,10 +9,9 @@ from .decorators import check_recaptcha
 
 
 # Create your views here.
-def homepage(request):
-    print("jkffffffffffffffffffffffffffffffffffffsd")
+def client_home(request):
 
-    return render(request, 'gym/gym.html')
+    return render(request, 'client/client.html')
 
 def signup(request):
 
