@@ -3,11 +3,16 @@ import datetime as dt
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from gym.models import Gym
+from client.models import Trainee
+
 
 class Event(models.Model):
     name = models.CharField(max_length=35)
     description = models.TextField(max_length=100)
     event_date = models.DateTimeField()
+    from_gym = models.ForeignKey(Gym,blank = True)
+    from_client = models.ForeignKey(Trainee, blank = True)
 
 
 class Chatroom(models.Model):

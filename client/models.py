@@ -3,6 +3,7 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from  gym.models import Gym
+from .models import Chatroom
 
 
 class Trainee(models.Model):
@@ -24,6 +25,8 @@ class Trainee(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     gym = models.ForeignKey(Gym, on_delete=models.CASCADE)
+    chatroom = models.ManyToManyField(Chatroom)
+
 
     @receiver(post_save, sender=User)
     def create_user_profile(sender, instance, created, **kwargs):
@@ -46,6 +49,21 @@ class Trainee(models.Model):
 
     def delete_trainee(self):
         self.delete()
+
+
+    @classmethod
+    def addchatroom(cls,user,newroom):
+        room, created = cls.objects.get_or_create(
+            user = user
+        )
+        room.chatroom.add(newroom)
+
+    @classmethod
+    def removechatroom(cls, user, newroom):
+        room, created = cls.objects.get_or_create(
+            user=user
+        )
+        room.chatroom.remove(newroom)
 
 
     
