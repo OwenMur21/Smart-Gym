@@ -1,0 +1,80 @@
+<div class="sidebar">
+    <a class="nav-link" style="font-weight: bolder;font-size: 20px;" href="/">Smart Gym</a>
+    <a class="active" href="/">Home</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/accounts/password/change">Change Password</a>
+          <a class="dropdown-item" href="/logout/">Logout</a>
+        </div>
+   
+    <a href="{% url 'add_gym' %}">Add Gym</a>
+    <a href="">Trainers</a>
+    <a href="">Clients</a>
+    <a href=""><b>Events</b></a>
+    <a class="nav-link dropdown-toggle locations" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="">
+        Accounts&nbsp;<i class="fas fa-user-cog"></i>
+      </a>
+      <section style="display:inline !important;font-size: 25px;padding-left: 30px;">
+        <i class="fab fa-facebook-square" style="padding-top:300px;"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-google-plus-g"></i>
+      </section>
+      <p style="font-size:18px;padding-left: 30px;"><small><b>&copy; SmartGym<i class="fas fa-trademark" style="font-size:13px;"></i></small></p></b>
+  </div>
+  <style>
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 235px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.5), 0 8px 24px 0 rgba(0, 0, 0, 0.24) !important;
+}
+
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  font-weight: bold;
+}
+ 
+.sidebar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+</style>
