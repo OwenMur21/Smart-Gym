@@ -4,7 +4,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 
-class Profile(models.Model):
+class Trainee(models.Model):
     """
     Class that contains Profile details
     """
@@ -16,7 +16,8 @@ class Profile(models.Model):
     ('Getting bigger', 'Getting bigger'),
     ('Maintain fitness', 'Maintain fitness'),
     )
-
+    weight = models.CharField(max_length = 10)
+    height = models.CharField(max_length = 10)
     goal = models.CharField(max_length = 30, choices=goals)
     contact = models.CharField(max_length = 30, blank=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True,)
@@ -24,11 +25,11 @@ class Profile(models.Model):
     @receiver(post_save, sender=User)
     def create_user_profile(sender, instance, created, **kwargs):
         if created:
-            Profile.objects.create(user=instance)
+            Trainee.objects.create(user=instance)
 
     @receiver(post_save, sender=User)
     def save_user_profile(sender, instance, **kwargs):
-        instance.profile.save()
+        instance.trainee.save()
 
     post_save.connect(save_user_profile, sender=User)
 
