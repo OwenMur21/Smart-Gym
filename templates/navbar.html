@@ -1,184 +1,80 @@
-<nav>
-
-    <div id="heading">
-      <h3 class="full-heading">NewsFeed</h3>
-      <h3 class="short-title">NF</h3>
-    </div>
-  
-    <ul>
-      <li>
-        <a routerLink="">
-          <span class="icon-space">
-            <i class="fas fa-newspaper"></i>
-          </span>
-          <span class="link-name">Top Stories
-            <span class="tooltip"></span>
-          </span>
-        </a>
-      </li>
-  
-      <li>
-        <a routerLink="local-news">
-          <span class="icon-space">
-            <i class="fas fa-map-marked-alt"></i>
-          </span>
-          <span class="link-name">Local News
-              <span class="tooltip"></span>
-          </span>
-        </a>
-      </li>
-  
-      <li>
-        <a routerLink="world-news">
-          <span class="icon-space">
-            <i class="fas fa-globe-africa"></i>
-          </span>
-          <span class="link-name">World News</span>
-        </a>
-      </li>
-  
-      <li>
-        <a routerLink="business">
-          <span class="icon-space">
-            <i class="fas fa-briefcase"></i>
-          </span>
-          <span class="link-name">Business</span>
-        </a>
-      </li>
-  
-      <li>
-        <a routerLink="entertainment">
-          <span class="icon-space">
-            <i class="fas fa-film"></i>
-          </span>
-          <span class="link-name">Entertainment</span>
-        </a>
-      </li>
-  
-      <li>
-        <a routerLink="technology">
-          <span class="icon-space">
-            <i class="fas fa-mobile-alt"></i>
-          </span>
-          <span class="link-name">Technology</span>
-        </a>
-      </li>
-  
-      <li>
-        <a routerLink="sports">
-          <span class="icon-space">
-            <i class="fas fa-basketball-ball"></i>
-          </span>
-          <span class="link-name">Sports</span>
-        </a>
-      </li>
-  
-      <li>
-        <a routerLink="science">
-          <span class="icon-space">
-            <i class="fas fa-flask"></i>
-          </span>
-          <span class="link-name">Science</span>
-        </a>
-      </li>
-  
-      <li>
-        <a routerLink="health">
-          <span class="icon-space">
-            <i class="fas fa-briefcase-medical"></i>
-          </span>
-          <span class="link-name">Health</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
+<div class="sidebar">
+    <a class="nav-link" style="font-weight: bolder;font-size: 20px;" href="/">Smart Gym</a>
+    <a class="active" href="/">Home</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/accounts/password/change">Change Password</a>
+          <a class="dropdown-item" href="/logout/">Logout</a>
+        </div>
+   
+    <a href="{% url 'add_gym' %}">Add Gym</a>
+    <a href="">Trainers</a>
+    <a href="">Clients</a>
+    <a href=""><b>Events</b></a>
+    <a class="nav-link dropdown-toggle locations" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="">
+        Accounts&nbsp;<i class="fas fa-user-cog"></i>
+      </a>
+      <section style="display:inline !important;font-size: 25px;padding-left: 30px;">
+        <i class="fab fa-facebook-square" style="padding-top:300px;"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-google-plus-g"></i>
+      </section>
+      <p style="font-size:18px;padding-left: 30px;"><small><b>&copy; SmartGym<i class="fas fa-trademark" style="font-size:13px;"></i></small></p></b>
+  </div>
   <style>
-    nav {
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  min-height: 100vh;
-  /* will cover the 100% of viewport */
-  overflow: hidden;
+body {
   margin: 0;
+  font-family: "Lato", sans-serif;
 }
 
-.short-title{
-  display: none !important;
-}
-
-#heading h3 {
-  font-weight: 700;
-  text-align: center;
-  padding: 40px 0 10px 0;
-  ;
-}
-
-ul {
-  list-style-type: none;
+.sidebar {
   margin: 0;
   padding: 0;
+  width: 235px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.5), 0 8px 24px 0 rgba(0, 0, 0, 0.24) !important;
 }
 
-ul li {
-  padding: 15px 0 15px 30px;
-  ;
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  font-weight: bold;
+}
+ 
+.sidebar a.active {
+  background-color: #4CAF50;
+  color: white;
 }
 
-ul li:hover {
-  background-color: #F2F2F2;
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
 }
 
-ul li:active {
-  background-color: #F2F2F2;
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
 }
 
-ul li:after {
-  background-color: #F2F2F2;
-}
-
-a {
-  color: #111517;
-  text-decoration: none;
-}
-
-.icon-space {
-  padding-right: 10px;
-}
-
-@media screen and (max-width: 1180px) {
-  nav {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    overflow: hidden;
-    margin: 0;
-    width: 80px;
-  }
-
-  #heading h3 {
-    font-size: 13px;
-    margin: 40px 0 10px 0;
-    padding: 8px;
-    text-align: left;
-  }
-
-  ul li {
-    padding: 15px 0 15px 30px;
-  }
-
-  .link-name {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .full-heading{
-    display: none;
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
     position: relative;
   }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
 
-  .short-title{
-    text-align: center !important;
-    display: block !important;
-    font-size: 20px !important;
-    font-weight: 900 !important;
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
   }
 }
-  </style>
+</style>

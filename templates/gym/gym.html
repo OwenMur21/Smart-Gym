@@ -1,4 +1,4 @@
-<!-- {% extends 'base.html'%}
+{% extends 'base.html'%}
 {% load bootstrap3 %}
 {% load bootstrap4 %}
 {% load static %}
@@ -16,52 +16,35 @@
 {% endblock %}
 {% block content %}
 <br> 
-<div class="row">
-    {% for gym in gyms %}
-    <div class="col-xs-12 col-sm-6 col-md-4 projects" style="padding-left:30px;">
-      <p>{{gym.id}}){{gym.name}}</p>
-      <img src="{{gym.image.url}}" alt="" style="width:250px;">
-       <p><b>Location:</b> {{ gym.location }}</p>
-       <p><b>Description:</b> {{gym.description}}</p>
-   
+<div class="container" style="padding-left: 80px;">
+    <div class="row">
+      {% for gym in gyms %}
+      <div class="col-xs-12 col-sm-6 col-md-4 images">
+        <div class="card" style="width:100% !important;box-shadow: 0 12px 10px 0 rgba(0, 0, 0, 0.2), 0 15px 23px 0 rgba(0, 0, 0, 0.06);">
+          <div class="card-header">
+            <h4><b>{{gym.id}}) {{gym.name}}</b></h4>
+          </div>
+          <div class="card-body">
+              <img src="{{gym.image.url}}"  data-toggle="modal" data-target="#exampleModalCenter{{photo.id}}" class = "img-responsive imagee" alt="" style="height:350px;width: 100% !important;position: center;size: cover;">
+              <br>
+              <br>
+              <p><b>Location:</b> {{gym.location}}</p>
+              <p><b>Description:</b> {{gym.description}}</p>
+              <p><b>Working Hours:</b> {{gym.working_hours}}</p>
+
+          
+          </div>
+          
+        </div>
+        <br>
+      </div>
+      {% endfor %}
     </div>
-    {% endfor %}
-  
   </div>
+
 
 
 {% endblock %}
 {% block scripts %} {{block.super}}
 
-{% endblock %} -->
-
-
-<div class="content">
-    <!--Content Head-->
-    <div class="content-head">
-      <h3>Top Stories</h3>
-      <p>Up-to-date Top Stories coverage.</p>
-    </div>
-  
-    <!-- Content Body -->
-    <div class="content-body">
-      <div class="row">
-  
-        <div class="col-sm">
-          <div class="card">
-            <a href={{_story.url}} target="blank_">
-              <img class="card-img-top img-fluid" src={{_story.urlToImage}} alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title text">{{_story.title}}</h5>
-                <p class="date text-left">{{_story.publishedAt | date }}</p>
-                <div class="card-footer">
-                  <small class="text-muted">{{_story.author}}</small>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-  </div>
+{% endblock %}
