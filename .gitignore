@@ -2,3 +2,5 @@ virtual/
 .env
 .vscode
 smartgym/__pycache__/
+client/__pycache__/
+client/migrations/__pycache__/

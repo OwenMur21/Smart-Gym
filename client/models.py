@@ -45,6 +45,9 @@ class Trainee(models.Model):
         self.delete()
 
 
+    
+
+
 
 
 
