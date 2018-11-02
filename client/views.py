@@ -79,7 +79,7 @@ def chatroom(request,room_id):
     posts = Post.objects.filter(chatroom=chatroom)
     if chatroom in chatrooms:
         r = chatroom
-        return render(request, 'chatroom.html', {'chatroom': r,'form':form})
+        return render(request, 'chatroom/chatroom.html', {'chatroom': r,'form':form})
 
 
 def post(request, id):
@@ -102,7 +102,17 @@ def chatrooms(request):
     current_user = request.user
     chatrooms = Chatroom.objects.all()
 
-    return render(request,'chatrooms.html',{'chatrooms':chatrooms})
+    return render(request,'chatroom/chatrooms.html',{'chatrooms':chatrooms})
+
+
+def exitchatroom(request,id):
+    current_user = request.user
+    # hood_name = current_user.profile.hood
+    # hood = Hood.objects.get(id=id)
+    current_user.profile.chatroom = None
+    current_user.profile.save()
+
+    return redirect('index')
 
 
 @login_required(login_url='/accounts/login/')
@@ -124,7 +134,7 @@ def newchatroom(request):
 
     else:
         NewChatForm = ChatForm()
-    return render(request, 'forms/newchat.html', {"newChatForm": NewChatForm})
+    return render(request, 'client/newchat.html', {"newChatForm": NewChatForm})
 
 
 
@@ -143,3 +153,27 @@ def joinchat(request,id):
     current_user.profile.save()
 
     return redirect('index')
+
+
+@login_required(login_url='/accounts/login/')
+def people(request):
+    people = User.objects.all()
+
+    return render(request,'client/people.html',{'people':people})
+
+
+
+@login_required(login_url='/accounts/login/')
+def stalk(request,profile_id):
+    stalked_user = User.objects.get(pk=profile_id)
+    stalked_profile = Trainee.objects.get(user_id=profile_id)
+
+    # profile = Profile.objects.get(user=stalked_user)
+    # print(profile)
+    posts = Post.objects.filter(poster=stalked_user)
+    chatrooms = stalked_user.profile.chatroom.all()
+    print(chatrooms)
+    # profile = Profile.objects.filter(user=request.user.id)
+
+    return render(request, 'profile/profile.html', {'profile': stalked_profile, 'posts': posts, 'chatrooms': chatrooms})
+

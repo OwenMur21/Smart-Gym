@@ -1,0 +1,34 @@
+{% extends 'base.html'%}
+{% load bootstrap4 %}
+{% block content %}
+
+<div class="{{chatroom.name}}">
+    <h4>{{chatroom.name}}</h4>
+    <a href="stalk/{{chatroom.admin.id}}" id="start">Started By: {{chatroom.admin.username}}</a>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        {% for post in chatroom.posts.all %}
+        <div class="col-md-6">
+            <div class="jumbotron">
+                <h4 id="chatroom_post_header">{{post.title}}</h4>
+                <p>{{post.post}}</p>
+                <a href="/userprofile/{{post.poster.id.}}">{{post.poster.username}}</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <div class="col-md-4">
+    <form  action="/post/{{chatroom.id}}" method="post" enctype="multipart/form-data">
+        {% csrf_token%}
+
+        {% bootstrap_form form %}
+        <input type="submit" class="btn btn-success btn-lg" value="Post">
+    </form>
+</div>
+</div>
+{% block scripts %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% bootstrap_javascript %} {% endblock %}
+{% endblock %}

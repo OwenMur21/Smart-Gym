@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+{% load bootstrap4 %}
+{% block content %}
+
+
+{% for person in people %}
+{% if person.profile %}
+<div class="col-md-6">
+    <div class="card border-success mb-3">
+        <div class="card-header">{{person.username}}</div>
+        <div class="card-body text-danger">
+            <p class="card-text">{{person.profile.bio}}</p>
+            <a href="stalk/{{person.id}}">View Profile</a>
+            <br>
+            <div class="offset-md-3">
+            <a href="connect/addfriend/{{person.id}}" class="btn btn-success">Add Friend</a>
+        </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endfor %}
+
+{% block scripts %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% bootstrap_javascript %} {% endblock %}
+{% endblock %}
